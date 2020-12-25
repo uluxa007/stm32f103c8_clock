@@ -1221,12 +1221,12 @@ void StartRing_task(void *argument)
 void StartButtons_task(void *argument)
 {
   /* USER CODE BEGIN StartButtons_task */
-	uint8_t ring_command,hui;
+	uint8_t ring_command,button;
   /* Infinite loop */
   for(;;)
   {
-		hui = HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_11);
-		if(hui==1)
+		button = HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_11);
+		if(button==1)
 		{
 			ring_command =0;
 			osMessageQueuePut(setRingQueueHandle,&ring_command,0U,200);
